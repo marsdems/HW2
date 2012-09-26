@@ -1,15 +1,19 @@
 #include "Shape.h"
 
-Shape::Shape(Vec2f center, float radius){
+// Added ColorA as a parameter to allow for different colors
+Shape::Shape(Vec2f center, float radius, ColorA color){
 	start_center_ = center;
 	center_ = center;
 	radius_ = radius;
+	color_ = color;
 }
 
 void Shape::draw(){
-	gl::color(Color8u(0,0,0));
+	//Enabled alpha blending and changed Color to ColorA
+	gl::enableAlphaBlending();
+	gl::color(ColorA(0,0,0, .5f));
 	gl::drawSolidCircle(center_, radius_);
-	gl::color(Color8u(255,255,255));
+	gl::color(ColorA(color_));
 	gl::drawSolidCircle(center_, radius_-3);
 }
 

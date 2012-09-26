@@ -47,10 +47,12 @@ void Homework2App::setup(){
 	display_text = true;
 	makeTextBox();
 
-	shape_one = new Shape(Vec2f(200, 100), 100);
-	shape_two = new Shape(Vec2f(150, 150), 100);
-	shape_three = new Shape(Vec2f(100, 200), 100);
-	shape_four = new Shape(Vec2f(50, 250), 100);
+	// Here I added alpha transparency and color as a parameter to make different color which
+	// I thought would look cool.
+	shape_one = new Shape(Vec2f(200, 100), 100, ColorA(255,0,0, .5f));
+	shape_two = new Shape(Vec2f(150, 150), 100, ColorA(0, 255,0, .5f));
+	shape_three = new Shape(Vec2f(100, 200), 100, ColorA(0,0,255, .5f));
+	shape_four = new Shape(Vec2f(50, 250), 100, ColorA(255,0,255, .5f));
 	
 	node_one = new Node(shape_one);
 	node_two = new Node(shape_two);
